@@ -463,6 +463,7 @@
     letter-spacing: 0.05em;
   }
   .hero-tag.accent { color: var(--violet); border-color: rgba(168, 85, 247, 0.3); }
+  .hero-mobile-photo { display: none; }
 
   /* Stack marquee */
   .marquee {
@@ -1281,6 +1282,115 @@
   @media(max-width:900px){.projects-grid{grid-template-columns:1fr}.project-card:first-child{grid-column:auto;min-height:340px}}
   @media(max-width:520px){.timeline{--timeline-axis:4px;--timeline-gap:2rem}.tl-row{padding:1.2rem}.projects-intro{align-items:start;flex-direction:column}.project-card{min-height:310px;padding:1.5rem}}
   .nav-links a.active{color:var(--text);background:var(--glass-strong)}
+
+  /* Responsive hardening */
+  img, svg { max-width: 100%; }
+  a, p, h1, h2, h3, span { overflow-wrap: anywhere; }
+
+  @media (max-width: 1100px) {
+    .container { max-width: 100%; }
+    .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 2.4rem; }
+    .featured-card, .contact-card { padding: 2.4rem; }
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 4rem 0; }
+    #hero { min-height: auto; padding-top: 6.5rem; }
+    .hero-top { align-items: flex-start; gap: 1rem; }
+    .hero-top > .meta { text-align: left; }
+    .hero-name { font-size: clamp(4.3rem, 16vw, 7rem); }
+    .hero-photo { max-width: min(380px, 82vw); }
+    .marquee { margin-top: 3rem; }
+    .stack-grid,
+    .services-grid,
+    .testi-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 1rem; }
+    .nav-wrap { top: .75rem; width: calc(100vw - 1.5rem); }
+    nav { width: 100%; justify-content: space-between; padding: .45rem .55rem .45rem 1rem; }
+    .mobile-menu { left: 0; right: 0; }
+    #hero { padding: 5.5rem 0 3rem; }
+    .hero-top { flex-direction: column; margin-bottom: 3rem; }
+    .hero-grid {
+      width: 100%;
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      gap: 2rem;
+    }
+    .hero-grid > div:first-child {
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-photo-wrap { display: none; }
+    .hero-mobile-photo {
+      display: block;
+      max-width: min(420px, 94vw);
+      margin: 0 auto 2.2rem;
+    }
+    .hero-top .left { gap: .6rem; }
+    .badge-soft { font-size: .68rem; }
+    .hero-eyebrow { font-size: .68rem; line-height: 1.6; }
+    .hero-grid > div:first-child { text-align: center; }
+    .hero-eyebrow,
+    .hero-name,
+    .hero-role,
+    .hero-bio,
+    .hero-btns { width: 100%; }
+    .hero-eyebrow,
+    .hero-role,
+    .hero-bio { margin-left: auto; margin-right: auto; }
+    .hero-name { font-size: clamp(4.1rem, 19vw, 5.7rem); line-height: .92; text-align: center; }
+    .hero-role { font-size: clamp(1.1rem, 6vw, 1.35rem); }
+    .hero-bio { font-size: .94rem; max-width: 38rem; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .btn { justify-content: center; width: min(100%, 320px); }
+    .hero-mobile-photo .hero-photo { max-width: 100%; }
+    .hero-photo-caption, .hero-tags { max-width: min(380px, 100%); }
+    .hero-photo-caption { font-size: .58rem; gap: .75rem; }
+    .hero-photo-caption .left, .hero-photo-caption .right { gap: .45rem; }
+    .hero-tags { justify-content: center; }
+    .marquee { border-radius: 14px; }
+    .marquee-label { display: none; }
+    .section-marker { gap: .65rem; margin-bottom: 2rem; }
+    .section-title { font-size: clamp(2.15rem, 12vw, 3.1rem); }
+    .section-sub { font-size: .95rem; }
+    .timeline { margin-top: 3rem; gap: 1.2rem; }
+    .tl-period { font-size: .68rem; flex-wrap: wrap; }
+    .tl-company { font-size: 1.55rem; }
+    .tl-desc { font-size: .9rem; }
+    .featured-card, .contact-card { padding: 1.3rem; border-radius: 22px; }
+    .featured-grid { gap: 1.8rem; }
+    .featured-stats { grid-template-columns: 1fr; gap: .6rem; }
+    .featured-stat { padding: .8rem 0; }
+    .featured-visual { aspect-ratio: 16 / 11; border-radius: 16px; }
+    .projects-intro { margin-top: 4rem; }
+    .projects-grid { gap: .9rem; }
+    .project-card, .project-card:first-child { min-height: 280px; border-radius: 20px; }
+    .project-name { font-size: 1.45rem; }
+    .project-desc { font-size: .9rem; }
+    .stack-cat, .service, .testi { padding: 1.25rem; }
+    .contact-inner { gap: 1.7rem; }
+    .contact-title { font-size: clamp(2rem, 11vw, 2.6rem); }
+    .contact-link { padding: .85rem; gap: .75rem; }
+    .contact-link-value { font-size: .82rem; word-break: break-word; }
+    .footer-row { align-items: flex-start; }
+    .footer-meta { text-align: left; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-name { font-size: 3.55rem; }
+    .hero-mobile-photo { max-width: 100%; }
+    .project-card, .project-card:first-child { min-height: 255px; }
+    .project-tags span, .tl-stack span { font-size: .58rem; }
+    .contact-link-icon { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -1338,6 +1448,11 @@
     <div class="hero-grid">
       <!-- LEFT: Text -->
       <div>
+        <div class="hero-mobile-photo anim-init" data-anim="mobile-photo" aria-hidden="true">
+          <div class="hero-photo">
+            <img src="./images/foto-perfil.jpeg?v=2" alt="Mayara Lucy — Desenvolvedora Fullstack"/>
+          </div>
+        </div>
         <div class="hero-eyebrow anim-init" data-anim="eyebrow">
           <span class="nr">N° 01</span> &nbsp;Desenvolvedora · Fullstack · Builder
         </div>
@@ -1899,6 +2014,7 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
 const heroAnim = async () => {
   const easing = spring({ stiffness: 90, damping: 18 });
   await animate('[data-anim="eyebrow"]', { opacity: [0, 1], y: [-10, 0] }, { duration: 0.5 }).finished;
+  animate('[data-anim="mobile-photo"]', { opacity: [0, 1], scale: [0.95, 1] }, { duration: 0.7, easing });
   animate('[data-anim="name"]', { opacity: [0, 1], y: [40, 0] }, { duration: 0.9, easing });
   await new Promise(r => setTimeout(r, 200));
   animate('[data-anim="role"]', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, easing });
